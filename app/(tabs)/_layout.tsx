@@ -4,12 +4,11 @@ import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
+const HEADER_TITLE = 'Time is Money';
+
+const TabBarIcon = (props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) => {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+};
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -21,10 +20,11 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name='index'
+        name='home'
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
+          headerTitle: HEADER_TITLE,
           headerRight: () => (
             <Link href='/modal' asChild>
               <Pressable>
@@ -42,10 +42,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name='two'
+        name='about'
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          title: 'About',
+          headerTitle: HEADER_TITLE,
+          tabBarIcon: ({ color }) => <TabBarIcon name='question-circle' color={color} />,
         }}
       />
     </Tabs>
