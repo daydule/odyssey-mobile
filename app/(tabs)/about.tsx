@@ -1,31 +1,49 @@
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-
+import AboutCardWithImage from '../../components/leaf/AboutCardWithImage';
+import { View } from 'react-native';
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>About</Text>
-      <View style={styles.separator} lightColor='#eee' darkColor='rgba(255,255,255,0.1)' />
-      <EditScreenInfo path='app/(tabs)/about.tsx' />
-    </View>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={true}>
+      <View style={styles.container}>
+        <View style={styles.aboutCardTop}>
+          <AboutCardWithImage
+            imageName='icon_negate'
+            title='Time is Money'
+            text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
+          />
+        </View>
+        <View style={styles.aboutCardNonTop}>
+          <AboutCardWithImage
+            imageName='icon_negate'
+            title='Time is Money'
+            text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
+          />
+        </View>
+        <View style={styles.aboutCardNonTop}>
+          <AboutCardWithImage
+            imageName='icon_negate'
+            title='Time is Money'
+            text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 25,
+    backgroundColor: 'white',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  aboutCardTop: {
+    width: '100%',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  aboutCardNonTop: {
+    width: '100%',
+    marginTop: 30,
   },
 });
