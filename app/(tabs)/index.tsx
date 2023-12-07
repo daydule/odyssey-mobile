@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { View } from '../../components/Themed';
 import InputHour from '../../components/leaf/InputHour';
 
-export default function TabOneScreen() {
+export default function Index() {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
       <View style={styles.container}>
