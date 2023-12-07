@@ -3,5 +3,11 @@
   "compilerOptions": {
     "strict": true
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "metro.config.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "metro.config.js",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }
