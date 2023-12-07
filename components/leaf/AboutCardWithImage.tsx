@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import Images from '../../constants/Images';
 
-type Props = {
+export type Props = {
   imageName: string;
   title: string;
   text: string;
