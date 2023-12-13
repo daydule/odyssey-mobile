@@ -29,7 +29,7 @@ const InputHour = ({ label }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>{label}</Text>
+        <Text>{label}</Text>
         <TextInput
           ref={inputRef}
           style={styles.input}
@@ -54,18 +54,15 @@ const InputHour = ({ label }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     alignItems: 'center',
-    height: 60,
+    height: 45,
     width: '80%',
+    marginTop: 5,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  label: {
-    padding: 10,
   },
   input: {
     flex: 1,

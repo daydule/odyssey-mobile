@@ -49,6 +49,7 @@ const getStories = () => {
   return {
     "./.storybook/stories/leaf/AboutCardWithImage.stories.tsx": require("./stories/leaf/AboutCardWithImage.stories.tsx"),
     "./.storybook/stories/leaf/InputHour.stories.tsx": require("./stories/leaf/InputHour.stories.tsx"),
+    "./.storybook/stories/tree/MainCard.stories.tsx": require("./stories/tree/MainCard.stories.tsx"),
   };
 };
 
