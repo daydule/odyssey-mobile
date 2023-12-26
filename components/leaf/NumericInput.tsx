@@ -4,9 +4,11 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 type Props = {
   label: string;
+  unit: string;
+  unitPosition: 'left' | 'right';
 };
 
-const InputHour = ({ label }: Props) => {
+const NumericInput = ({ label, unit, unitPosition }: Props) => {
   const inputRef = useRef<TextInput | null>(null);
   const [text, setText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
@@ -30,19 +32,22 @@ const InputHour = ({ label }: Props) => {
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Text>{label}</Text>
-        <TextInput
-          ref={inputRef}
-          style={styles.input}
-          placeholder='入力してください'
-          value={text}
-          placeholderTextColor='#aaa'
-          keyboardType='numeric'
-          onChangeText={handleTextChanged}
-          textAlign='right'
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
-        <Text style={styles.unit}>h</Text>
+        <View style={styles.innerInputContainer}>
+          {unitPosition === 'left' && <Text style={styles.unit}>{unit}</Text>}
+          <TextInput
+            ref={inputRef}
+            style={styles.input}
+            placeholder='入力してください'
+            value={text}
+            placeholderTextColor='#aaa'
+            keyboardType='numeric'
+            onChangeText={handleTextChanged}
+            textAlign='right'
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+          {unitPosition === 'right' && <Text style={styles.unit}>{unit}</Text>}
+        </View>
         <TouchableOpacity style={styles.iconButton} onPress={isFocused ? handleBlurInput : handleFocusInput}>
           <FontAwesome name={isFocused ? 'check' : 'pencil'} size={12} color={isFocused ? 'green' : 'black'} />
         </TouchableOpacity>
@@ -64,13 +69,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
+  innerInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    width: '80%',
+  },
   input: {
     flex: 1,
     height: 40,
     fontSize: 20,
   },
   unit: {
-    padding: 10,
+    padding: 12,
   },
   iconButton: {
     padding: 10,
@@ -82,4 +92,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputHour;
+export default NumericInput;

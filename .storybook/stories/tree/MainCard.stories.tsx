@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import MainCard from '../../../components/tree/MainCard';
 import { Meta } from '@storybook/react-native';
-import InputHour from '../../../components/leaf/InputHour';
+import NumericInput from '../../../components/leaf/NumericInput';
 
 const MainCardMeta: Meta<typeof MainCard> = {
   title: 'Tree/MainCard',
@@ -40,11 +40,6 @@ export const CustomTitleAndColor = {
   args: {
     title: 'Custom Title',
     headerBgColor: 'green',
-    // children: (
-    //   <View>
-    //     <InputHour label='Time' />
-    //   </View>
-    // ),
   },
 };
 
