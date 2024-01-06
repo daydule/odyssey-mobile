@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 
 import AboutCardWithImage from '../../components/leaf/AboutCardWithImage';
 import { View } from 'react-native';
-export default function TabTwoScreen() {
+export default function About() {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={true}>
       <View style={styles.container}>
