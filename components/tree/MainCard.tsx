@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Svg, Circle } from 'react-native-svg';
 
 type Props = {
   children: ReactNode;
@@ -31,6 +32,7 @@ const MainCard = ({ children, title, headerBgColor }: Props) => {
       borderTopLeftRadius: 25,
       borderTopRightRadius: 25,
       backgroundColor: headerBgColor,
+      flexDirection: 'row',
     },
     headerText: {
       marginHorizontal: 10,
@@ -45,7 +47,13 @@ const MainCard = ({ children, title, headerBgColor }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
+        <Svg height='16' width='16'>
+          <Circle cx='8' cy='8' r='8' fill='white' />
+        </Svg>
         <Text style={styles.headerText}>{title}</Text>
+        <Svg height='16' width='16'>
+          <Circle cx='8' cy='8' r='8' fill='white' />
+        </Svg>
       </View>
       <View style={styles.childrenContainer}>{children}</View>
     </View>
