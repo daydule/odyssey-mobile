@@ -3,6 +3,7 @@ import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
+import { Header } from '../../components/leaf/Header';
 
 const HEADER_TITLE = 'Time is Money';
 
@@ -24,7 +25,7 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
-          headerTitle: HEADER_TITLE,
+          headerTitle: () => <Header />,
           headerRight: () => (
             <Link href='/modal' asChild>
               <Pressable>
@@ -45,7 +46,7 @@ export default function TabLayout() {
         name='about'
         options={{
           title: 'About',
-          headerTitle: HEADER_TITLE,
+          headerTitle: () => <Header />,
           tabBarIcon: ({ color }) => <TabBarIcon name='question-circle' color={color} />,
         }}
       />
