@@ -18,7 +18,7 @@ export const unstable_settings = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -54,3 +54,11 @@ function RootLayoutNav() {
     </ThemeProvider>
   );
 }
+
+// TODO: なぜこれだと、ただの真っ白な画面になってしまうのか調査
+// TODO: 全文検索用ID(SCWCw5gMca)
+// console.log('Constants?.expoConfig?.extra?.storybookEnabled', Constants?.expoConfig?.extra?.storybookEnabled);
+// import { default as storybook } from '../.storybook';
+// export default Constants?.expoConfig?.extra?.storybookEnabled === 'true' ? storybook : RootLayout;
+
+export default RootLayout;

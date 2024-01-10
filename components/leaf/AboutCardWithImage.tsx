@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import Images from '../../constants/Images';
 
-type Props = {
+export type Props = {
   imageName: string;
   title: string;
   text: string;
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     minHeight: 500,
     width: '100%',
-    borderRadius: 50,
+    borderRadius: 25,
     backgroundColor: 'white',
     boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.25)',
     shadowOffset: {
@@ -46,16 +46,16 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: '100%',
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
     backgroundColor: 'gray',
     resizeMode: 'cover',
   },
   aboutContainer: {
     width: '100%',
     textAlign: 'center',
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
     padding: 24,
   },
   title: {
