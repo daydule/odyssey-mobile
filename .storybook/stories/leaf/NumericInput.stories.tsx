@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import NumericInput from '../../../components/leaf/NumericInput';
 import { Meta } from '@storybook/react-native';
 
