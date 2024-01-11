@@ -52,7 +52,6 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
           <FontAwesome name={isFocused ? 'check' : 'pencil'} size={12} color={isFocused ? 'green' : 'black'} />
         </TouchableOpacity>
       </View>
-      <View style={styles.underline} />
     </View>
   );
 };
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: '80%',
     marginTop: 5,
+    borderBottomWidth: 1,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -81,14 +81,10 @@ const styles = StyleSheet.create({
   },
   unit: {
     padding: 12,
+    width: '10%',
   },
   iconButton: {
     padding: 10,
-  },
-  underline: {
-    borderBottomWidth: 1,
-    borderColor: '#000000',
-    width: '100%',
   },
 });
 
