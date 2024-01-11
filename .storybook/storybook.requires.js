@@ -51,6 +51,7 @@ const getStories = () => {
     "./.storybook/stories/leaf/Button.stories.tsx": require("./stories/leaf/Button.stories.tsx"),
     "./.storybook/stories/leaf/NumericInput.stories.tsx": require("./stories/leaf/NumericInput.stories.tsx"),
     "./.storybook/stories/tree/MainCard.stories.tsx": require("./stories/tree/MainCard.stories.tsx"),
+    "./.storybook/stories/tree/MainCardWithInput.stories.tsx": require("./stories/tree/MainCardWithInput.stories.tsx"),
   };
 };
 
