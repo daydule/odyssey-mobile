@@ -53,7 +53,7 @@ const MainCardWithMoneyResult = () => {
   });
 
   return (
-    <MainCard title='Time is Money' headerBgColor='bg-cyan-400'>
+    <MainCard title='Time is Money' headerBgColor='blue'>
       <View style={styles.moneyResultContainer}>
         <Text style={styles.mainPriceText}> ¥ {mainPrice || 0}</Text>
         <Text style={styles.previousPriceText}> 前回：¥ {previousPrice || '---'}</Text>
