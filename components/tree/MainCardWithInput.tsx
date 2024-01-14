@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    height: 45,
+    height: 54,
   },
 });
 
