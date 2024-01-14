@@ -3,7 +3,7 @@ import { View, StyleSheet, Image } from 'react-native';
 import Images from '../../constants/Images';
 
 export const Header = () => {
-  const headerImage = Images['header_logo'];
+  const headerImage = Images['headerLogo'];
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={headerImage} />
