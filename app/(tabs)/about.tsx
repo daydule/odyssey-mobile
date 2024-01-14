@@ -1,14 +1,12 @@
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import About from '../../components/forest/About';
 import React from 'react';
+import Images from '../../constants/Images';
 
 export default function AboutPage() {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require('../../assets/images/about_background_image.png')}
-        style={styles.backgroundImage}
-      >
+      <ImageBackground source={Images.aboutBackground} style={styles.backgroundImage}>
         <About />
       </ImageBackground>
     </View>

@@ -5,25 +5,25 @@ import { View } from 'react-native';
 import React from 'react';
 export default function About() {
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={true}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} scrollEnabled={true}>
       <View style={styles.container}>
         <View style={styles.aboutCardTop}>
           <AboutCardWithImage
-            imageName='icon_negate'
+            imageName='iconNegate'
             title='Time is Money'
             text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
           />
         </View>
         <View style={styles.aboutCardNonTop}>
           <AboutCardWithImage
-            imageName='icon_negate'
+            imageName='iconNegate'
             title='Time is Money'
             text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
           />
         </View>
         <View style={styles.aboutCardNonTop}>
           <AboutCardWithImage
-            imageName='icon_negate'
+            imageName='iconNegate'
             title='Time is Money'
             text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
           />

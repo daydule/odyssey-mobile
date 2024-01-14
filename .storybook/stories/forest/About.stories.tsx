@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import { Meta } from '@storybook/react-native';
 import About from '../../../components/forest/About';
+import Images from '../..//../constants/Images';
 
 const AboutMeta: Meta<typeof About> = {
   title: 'Forest/About',
@@ -9,10 +10,7 @@ const AboutMeta: Meta<typeof About> = {
   decorators: [
     (Story) => (
       <View style={styles.container}>
-        <ImageBackground
-          source={require('../../../assets/images/about_background_image.png')}
-          style={styles.backgroundImage}
-        >
+        <ImageBackground source={Images.aboutBackground} style={styles.backgroundImage}>
           <Story />
         </ImageBackground>
       </View>

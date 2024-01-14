@@ -7,7 +7,7 @@ const AboutCardWithImageMeta: Meta<typeof AboutCardWithImage> = {
   title: 'Leaf/AboutCardWithImage',
   component: AboutCardWithImage,
   argTypes: {
-    imageName: { control: 'select', options: ['icon_negate'] }, // Assuming 'icon_negate' is in your Images object
+    imageName: { control: 'select', options: ['iconNegate'] }, // Assuming 'iconNegate' is in your Images object
     title: { control: 'text' },
     text: { control: 'text' },
   },
@@ -35,21 +35,21 @@ export const ThreeAboutCardStory: Story = () => (
     <View style={styles.container}>
       <View style={styles.aboutCardTop}>
         <AboutCardWithImage
-          imageName='icon_negate'
+          imageName='iconNegate'
           title='Time is Money'
           text='テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト'
         />
       </View>
       <View style={styles.aboutCardNonTop}>
         <AboutCardWithImage
-          imageName='icon_negate'
+          imageName='iconNegate'
           title='Time is Money'
           text='テストテストテストテストテストテストテストテスト'
         />
       </View>
       <View style={styles.aboutCardNonTop}>
         <AboutCardWithImage
-          imageName='icon_negate'
+          imageName='iconNegate'
           title='Time is Money'
           text='テストテストテストテストテストテストテストテスト'
         />

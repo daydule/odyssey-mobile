@@ -1,7 +1,8 @@
 import { ImageSourcePropType } from 'react-native';
 
 const Images: Record<string, ImageSourcePropType> = {
-  icon_negate: require('../assets/images/icon_negate.jpeg'),
+  iconNegate: require('../assets/images/icon_negate.jpeg'),
+  aboutBackground: require('../assets/images/about_background_image.png'),
 };
 
 export default Images;
