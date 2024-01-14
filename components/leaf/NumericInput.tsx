@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   label: {
     width: '20%',
-    fontSize: 16,
+    fontSize: 24,
     marginLeft: 5,
   },
   innerInputContainer: {
