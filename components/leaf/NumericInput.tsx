@@ -49,7 +49,7 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
           <Text style={styles.unit}>{unitPosition === 'right' ? unit : ''}</Text>
         </View>
         <TouchableOpacity style={styles.iconButton} onPress={isFocused ? handleBlurInput : handleFocusInput}>
-          <FontAwesome name={isFocused ? 'check' : 'pencil'} size={12} color={isFocused ? 'green' : 'black'} />
+          <FontAwesome name={isFocused ? 'check' : 'pencil'} size={20} color={isFocused ? 'green' : 'black'} />
         </TouchableOpacity>
       </View>
     </View>
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   label: {
     width: '20%',
     fontSize: 16,
+    marginLeft: 5,
   },
   innerInputContainer: {
     flexDirection: 'row',
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
     width: '75%',
-    fontSize: 20,
+    fontSize: 16,
   },
   unit: {
     padding: 12,
