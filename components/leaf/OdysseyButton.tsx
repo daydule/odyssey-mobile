@@ -6,7 +6,7 @@ export type Props = {
   onPress: () => void;
 };
 
-const Button: React.FC<Props> = ({ label, onPress }) => {
+const OdysseyButton = ({ label, onPress }: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default OdysseyButton;

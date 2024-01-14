@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import NumericInput from '../leaf/NumericInput';
 import MainCard from './MainCard';
-import Button from '../leaf/Button';
+import OdysseyButton from '../leaf/OdysseyButton';
 
 const MainCardWithInput = () => {
   const handlePress = () => {
@@ -16,7 +16,7 @@ const MainCardWithInput = () => {
         <NumericInput label='年収' unit='¥' unitPosition='left' />
         <NumericInput label='Time' unit='h' unitPosition='right' />
         <View style={styles.buttonContainer}>
-          <Button label='Time is Money' onPress={handlePress} />
+          <OdysseyButton label='Time is Money' onPress={handlePress} />
         </View>
       </View>
     </MainCard>
