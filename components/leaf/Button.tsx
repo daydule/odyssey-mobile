@@ -16,6 +16,9 @@ const Button: React.FC<Props> = ({ label, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 10,
     backgroundColor: 'blue',
     boxShadow: '1px 1px 1px 0px rgba(0, 0, 0, 0.25)',
@@ -25,10 +28,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 3.84,
-    padding: 10,
+    padding: 12,
   },
   label: {
     color: 'white',
+    fontSize: 24,
   },
 });
 
