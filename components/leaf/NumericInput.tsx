@@ -49,7 +49,7 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
           <Text style={styles.unit}>{unitPosition === 'right' ? unit : ''}</Text>
         </View>
         <TouchableOpacity style={styles.iconButton} onPress={isFocused ? handleBlurInput : handleFocusInput}>
-          <FontAwesome name={isFocused ? 'check' : 'pencil'} size={20} color={isFocused ? 'green' : 'black'} />
+          <FontAwesome name={isFocused ? 'check' : 'pencil'} size={20} color={isFocused ? 'green' : 'gray'} />
         </TouchableOpacity>
       </View>
     </View>
