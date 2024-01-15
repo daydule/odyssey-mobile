@@ -60,38 +60,43 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     height: 45,
-    width: '80%',
+    width: '100%',
     marginTop: 5,
+    paddingHorizontal: 5,
     borderBottomWidth: 1,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+    justifyContent: 'space-between',
+    width: '100%',
   },
   label: {
     width: '20%',
     fontSize: 24,
-    marginLeft: 5,
   },
   innerInputContainer: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    width: '80%',
+    width: '65%',
   },
   input: {
     flex: 1,
     height: 40,
-    width: '75%',
+    width: '90%',
     fontSize: 16,
   },
   unit: {
     padding: 12,
-    width: '10%',
+    width: '5%',
   },
   iconButton: {
     padding: 10,
     width: '15%',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
