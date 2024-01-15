@@ -8,9 +8,14 @@ type Props = {
   unitPosition: 'left' | 'right';
 };
 
+const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right', value: number) => {
+  const formattedValue = value.toLocaleString();
+  return unitPosition === 'left' ? `${unit}${formattedValue}` : `${formattedValue}${unit}`;
+};
+
 const NumericInput = ({ label, unit, unitPosition }: Props) => {
   const inputRef = useRef<TextInput | null>(null);
-  const [text, setText] = useState('');
+  const [value, setValue] = useState<number>(0);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocusInput = () => {
@@ -25,7 +30,8 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
 
   const handleTextChanged = (input: string) => {
     const numericInput = input.replace(/[^0-9]/g, '');
-    setText(numericInput);
+    if (numericInput === '') return;
+    setValue(Number(numericInput));
   };
 
   return (
@@ -33,12 +39,11 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
       <View style={styles.inputContainer}>
         <Text style={styles.label}>{label}</Text>
         <View style={styles.innerInputContainer}>
-          <Text style={styles.unit}>{unitPosition === 'left' ? unit : ''}</Text>
           <TextInput
             ref={inputRef}
             style={styles.input}
             placeholder='入力してください'
-            value={text}
+            value={convertValueToDisplayText(unit, unitPosition, value)}
             placeholderTextColor='#aaa'
             keyboardType='numeric'
             onChangeText={handleTextChanged}
@@ -46,7 +51,6 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          <Text style={styles.unit}>{unitPosition === 'right' ? unit : ''}</Text>
         </View>
         <TouchableOpacity style={styles.iconButton} onPress={isFocused ? handleBlurInput : handleFocusInput}>
           <FontAwesome name={isFocused ? 'check' : 'pencil'} size={20} color={isFocused ? 'green' : 'lightgray'} />
@@ -87,13 +91,8 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    width: '90%',
+    width: '100%',
     fontSize: 16,
-    color: '#7e7e7e',
-  },
-  unit: {
-    padding: 12,
-    width: '5%',
     color: '#7e7e7e',
   },
   iconButton: {
