@@ -50,7 +50,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     marginHorizontal: 10,
-    color: 'white',
+    color: 'gray',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   childrenContainer: {
     width: '100%',

@@ -9,7 +9,7 @@ const MainCardWithInput = () => {
   };
 
   return (
-    <MainCard title='Time is Money' headerBgColor='blue'>
+    <MainCard title='Time is Money' headerBgColor='#cda7ff'>
       <View style={styles.container}>
         <NumericInput label='時給' unit='¥' unitPosition='left' />
         <NumericInput label='月収' unit='¥' unitPosition='left' />
