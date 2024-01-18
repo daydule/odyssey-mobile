@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import NumericInput from '../../../components/leaf/NumericInput';
 import { Meta } from '@storybook/react-native';
 
@@ -13,7 +13,14 @@ const NumericInputMeta: Meta<typeof NumericInput> = {
   },
   decorators: [
     (Story) => (
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: 'white' }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginHorizontal: 20,
+        }}
+      >
         <Story />
       </View>
     ),
