@@ -3,8 +3,7 @@ import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
-
-const HEADER_TITLE = 'Time is Money';
+import { Header } from '../../components/leaf/Header';
 
 const TabBarIcon = (props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) => {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
@@ -24,28 +23,14 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
-          headerTitle: HEADER_TITLE,
-          headerRight: () => (
-            <Link href='/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          headerTitle: () => <Header />,
         }}
       />
       <Tabs.Screen
         name='about'
         options={{
           title: 'About',
-          headerTitle: HEADER_TITLE,
+          headerTitle: () => <Header />,
           tabBarIcon: ({ color }) => <TabBarIcon name='question-circle' color={color} />,
         }}
       />
