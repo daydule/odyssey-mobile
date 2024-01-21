@@ -4,6 +4,8 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import { default as storybook } from '../.storybook';
+import Constants from 'expo-constants';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -11,12 +13,11 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+Constants?.expoConfig?.extra?.storybookEnabled !== 'true' && SplashScreen.preventAutoHideAsync();
 
 function RootLayout() {
   const [loaded, error] = useFonts({
@@ -49,16 +50,8 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );
 }
-
-// TODO: なぜこれだと、ただの真っ白な画面になってしまうのか調査
-// TODO: 全文検索用ID(SCWCw5gMca)
-// console.log('Constants?.expoConfig?.extra?.storybookEnabled', Constants?.expoConfig?.extra?.storybookEnabled);
-// import { default as storybook } from '../.storybook';
-// export default Constants?.expoConfig?.extra?.storybookEnabled === 'true' ? storybook : RootLayout;
-
-export default RootLayout;
+export default Constants?.expoConfig?.extra?.storybookEnabled === 'true' ? storybook : RootLayout;
