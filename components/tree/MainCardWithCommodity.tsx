@@ -6,22 +6,19 @@ const MainCardWithCommodity: React.FC = () => {
   return (
     <View style={styles.container}>
       <CommodityCard
-        imageUrl='a'
-        imageAccessibilityLabel='b'
+        imageAccessibilityLabel='First Comodity Image'
         upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
         lowerText='$1,000,000'
       />
       <View style={styles.divider} />
       <CommodityCard
-        imageUrl='a'
-        imageAccessibilityLabel='b'
+        imageAccessibilityLabel='Second Comodity Image'
         upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
         lowerText='$1,000,000'
       />
       <View style={styles.divider} />
       <CommodityCard
-        imageUrl='a'
-        imageAccessibilityLabel='b'
+        imageAccessibilityLabel='Third First Comodity Image'
         upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
         lowerText='$1,000,000'
       />

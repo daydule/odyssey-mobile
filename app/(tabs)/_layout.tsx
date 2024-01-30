@@ -4,8 +4,7 @@ import { Pressable, useColorScheme } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import Colors from '../../constants/Colors';
-
-const HEADER_TITLE = 'Time is Money';
+import { Header } from '../../components/leaf/Header';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -42,7 +41,7 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => homeIcon(color),
-          headerTitle: HEADER_TITLE,
+          headerTitle: () => <Header />,
           headerRight: () => (
             <Link href='/modal' asChild>
               <Pressable>
@@ -63,7 +62,7 @@ export default function TabLayout() {
         name='about'
         options={{
           title: 'About',
-          headerTitle: HEADER_TITLE,
+          headerTitle: () => <Header />,
           tabBarIcon: ({ color }) => aboutIcon(color),
         }}
       />

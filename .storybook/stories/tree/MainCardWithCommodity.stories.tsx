@@ -4,7 +4,7 @@ import MainCardWithCommodity from '../../../components/tree/MainCardWithCommodit
 import { Meta } from '@storybook/react-native';
 
 const MainCardWithCommodityMeta: Meta<typeof MainCardWithCommodity> = {
-  title: 'Tree/MainCard',
+  title: 'Tree/MainCardWithCommodity',
   component: MainCardWithCommodity,
   decorators: [
     (Story) => (
@@ -17,6 +17,4 @@ const MainCardWithCommodityMeta: Meta<typeof MainCardWithCommodity> = {
 
 export default MainCardWithCommodityMeta;
 
-export const Default = {
-  args: {},
-};
+export const Default = {};
