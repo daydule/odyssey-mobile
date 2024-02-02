@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
-import AboutCardWithImage from '../../../components/leaf/AboutCardWithImage';
+import AboutCardWithImage from './AboutCardWithImage';
 import { Meta, Story } from '@storybook/react-native';
 
 const AboutCardWithImageMeta: Meta<typeof AboutCardWithImage> = {
