@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Header } from '../../../components/leaf/Header';
-import { Meta, Story } from '@storybook/react-native';
+import { Header } from './Header';
+import { Meta } from '@storybook/react-native';
 
 const HeaderMeta: Meta<typeof Header> = {
   title: 'Leaf/Header',
