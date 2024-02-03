@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react-native';
-import OdysseyButton from '../../../components/leaf/OdysseyButton';
+import OdysseyButton from './OdysseyButton';
 import { View } from 'react-native';
 
 const OdysseyButtonMeta: Meta<typeof OdysseyButton> = {
-  title: 'Leaf/Button',
+  title: 'Leaf/OdysseyButton',
   component: OdysseyButton,
   argTypes: {
     label: { control: 'text' },

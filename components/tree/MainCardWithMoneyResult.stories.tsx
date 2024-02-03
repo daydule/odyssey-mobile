@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import MainCardWithMoneyResult from '../../../components/tree/MainCardWithMoneyResult';
+import MainCardWithMoneyResult from './MainCardWithMoneyResult';
 import { Meta } from '@storybook/react-native';
 
 const MainCardWithMoneyResultMeta: Meta<typeof MainCardWithMoneyResult> = {

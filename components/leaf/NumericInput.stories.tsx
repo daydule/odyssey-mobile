@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import NumericInput from '../../../components/leaf/NumericInput';
+import NumericInput from './NumericInput';
 import { Meta } from '@storybook/react-native';
 
 const NumericInputMeta: Meta<typeof NumericInput> = {
