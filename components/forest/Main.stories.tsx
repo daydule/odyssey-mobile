@@ -1,7 +1,8 @@
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import Main from './Main';
 import Images from '../../constants/Images';
-import { Meta } from '@storybook/react-native';
+import { Meta, StoryObj } from '@storybook/react-native';
+import { ComponentProps } from 'react';
 
 const MainMeta: Meta<typeof Main> = {
   title: 'Forest/Main',
@@ -19,7 +20,11 @@ const MainMeta: Meta<typeof Main> = {
 
 export default MainMeta;
 
-export const Default = {};
+type Story = StoryObj<typeof MainMeta> & { args: ComponentProps<typeof Main> };
+
+export const Default: Story = {
+  args: {},
+};
 
 const styles = StyleSheet.create({
   container: {
