@@ -27,34 +27,9 @@ const MainCardWithMoneyResult = () => {
     fetchData();
   }, [mainPrice]);
 
-  const styles = StyleSheet.create({
-    moneyResultContainer: {
-      height: 580,
-      width: 173,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-end',
-      justifyContent: 'center',
-    },
-    mainPriceText: {
-      height: 48,
-      fontSize: 33,
-      marginVertical: 18,
-    },
-    previousPriceText: {
-      height: 20,
-      fontSize: 14,
-      marginVertical: 18,
-    },
-    differencePriceText: {
-      height: 20,
-      fontSize: 14,
-    },
-  });
-
   return (
-    <MainCard title='Time is Money' headerBgColor='blue'>
-      <View style={styles.moneyResultContainer}>
+    <MainCard title='Time is Money' headerBgColor='#cda7ff'>
+      <View style={styles.container}>
         <Text style={styles.mainPriceText}> ¥ {mainPrice || 0}</Text>
         <Text style={styles.previousPriceText}> 前回：¥ {previousPrice || '---'}</Text>
         <Text style={styles.differencePriceText}> 差額：¥ {difference || '---'}</Text>
@@ -62,5 +37,34 @@ const MainCardWithMoneyResult = () => {
     </MainCard>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    height: 580,
+    width: 173,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  mainPriceText: {
+    height: 48,
+    fontSize: 33,
+    marginVertical: 18,
+    color: '#7e7e7e',
+    fontWeight: 'bold',
+  },
+  previousPriceText: {
+    height: 20,
+    fontSize: 14,
+    marginVertical: 18,
+    color: '#7e7e7e',
+  },
+  differencePriceText: {
+    height: 20,
+    fontSize: 14,
+    color: '#7e7e7e',
+  },
+});
 
 export default MainCardWithMoneyResult;
