@@ -31,9 +31,9 @@ const MainCardWithMoneyResult = () => {
   return (
     <MainCard title='Time is Money' headerBgColor='#cda7ff'>
       <View style={styles.container}>
-        <Text style={styles.mainPriceText}> ¥ {mainPrice || 0}</Text>
-        <Text style={styles.previousPriceText}> 前回：¥ {previousPrice || '---'}</Text>
-        <Text style={styles.differencePriceText}> 差額：¥ {difference || '---'}</Text>
+        <Text style={styles.mainPriceText}> ¥ {mainPrice ?? 0}</Text>
+        <Text style={styles.previousPriceText}> 前回：¥ {previousPrice ?? '---'}</Text>
+        <Text style={styles.differencePriceText}> 差額：¥ {difference ?? '---'}</Text>
       </View>
     </MainCard>
   );
