@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { View } from 'react-native';
 import MainCardWithMoneyResult from './MainCardWithMoneyResult';
-import { Meta } from '@storybook/react-native';
+import { Meta, StoryObj } from '@storybook/react-native';
 
 const MainCardWithMoneyResultMeta: Meta<typeof MainCardWithMoneyResult> = {
   title: 'Tree/MainCardWithMoneyResult',
@@ -17,4 +17,8 @@ const MainCardWithMoneyResultMeta: Meta<typeof MainCardWithMoneyResult> = {
 
 export default MainCardWithMoneyResultMeta;
 
-export const Default = {};
+type Story = StoryObj<typeof MainCardWithMoneyResultMeta> & { args: ComponentProps<typeof MainCardWithMoneyResult> };
+
+export const Default: Story = {
+  args: {},
+};
