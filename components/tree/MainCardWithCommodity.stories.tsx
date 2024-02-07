@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import MainCardWithCommodity from '../../../components/tree/MainCardWithCommodity';
+import MainCardWithCommodity from './MainCardWithCommodity';
 import { Meta } from '@storybook/react-native';
 
 const MainCardWithCommodityMeta: Meta<typeof MainCardWithCommodity> = {

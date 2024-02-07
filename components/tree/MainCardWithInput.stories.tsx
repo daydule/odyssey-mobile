@@ -1,6 +1,6 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react-native';
-import MainCardWithInput from '../../../components/tree/MainCardWithInput';
+import { Meta } from '@storybook/react-native';
+import MainCardWithInput from './MainCardWithInput';
 import { View } from 'react-native';
 
 const MainCardWithInputMeta: Meta<typeof MainCardWithInput> = {

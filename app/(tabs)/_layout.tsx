@@ -1,6 +1,6 @@
+import Svg, { Path } from 'react-native-svg';
 import { Tabs } from 'expo-router';
 import { useColorScheme } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
 
 import Colors from '../../constants/Colors';
 import { Header } from '../../components/leaf/Header';

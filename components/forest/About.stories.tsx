@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import { Meta } from '@storybook/react-native';
-import About from '../../../components/forest/About';
-import Images from '../..//../constants/Images';
+import About from './About';
+import Images from '../../constants/Images';
 
 const AboutMeta: Meta<typeof About> = {
   title: 'Forest/About',

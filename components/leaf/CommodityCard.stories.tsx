@@ -1,7 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import ComodityCard from '../../../components/leaf/CommodityCard';
+import ComodityCard from './CommodityCard';
 import { Meta } from '@storybook/react-native';
+import Images from '../../constants/Images';
 
 const ComodityCardMeta: Meta<typeof ComodityCard> = {
   title: 'Leaf/ComodityCard',
@@ -19,6 +20,7 @@ export default ComodityCardMeta;
 
 export const Default = {
   args: {
+    imageUrl: Images['noImage'],
     imageAccessibilityLabel: 'First Comodity Image',
     upperText: 'テストテストテストテストテストテストテストテストテストテストテストテスト',
     lowerText: '$1,000,000',

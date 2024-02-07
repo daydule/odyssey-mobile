@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import MainCard from '../../../components/tree/MainCard';
+import { View } from 'react-native';
+import MainCard from './MainCard';
 import { Meta } from '@storybook/react-native';
-import NumericInput from '../../../components/leaf/NumericInput';
 
 const MainCardMeta: Meta<typeof MainCard> = {
   title: 'Tree/MainCard',
