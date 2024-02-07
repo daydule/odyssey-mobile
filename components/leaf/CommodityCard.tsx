@@ -1,20 +1,14 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, ImageSourcePropType } from 'react-native';
-import Images from '../../constants/Images';
 
 interface Props {
-  imageUrl?: ImageSourcePropType;
+  imageUrl: ImageSourcePropType;
   imageAccessibilityLabel: string;
   upperText: string;
   lowerText: string;
 }
 
-const CommodityCard: React.FC<Props> = ({
-  imageUrl = Images['iconNegate'],
-  imageAccessibilityLabel,
-  upperText,
-  lowerText,
-}) => {
+const CommodityCard: React.FC<Props> = ({ imageUrl, imageAccessibilityLabel, upperText, lowerText }) => {
   return (
     <View style={styles.card}>
       <Image source={imageUrl} accessibilityLabel={imageAccessibilityLabel} style={styles.image} />

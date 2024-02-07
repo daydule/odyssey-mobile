@@ -1,28 +1,35 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CommodityCard from '../leaf/CommodityCard';
+import Images from '../../constants/Images';
+import MainCard from './MainCard';
 
 const MainCardWithCommodity: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <CommodityCard
-        imageAccessibilityLabel='First Comodity Image'
-        upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
-        lowerText='$1,000,000'
-      />
-      <View style={styles.divider} />
-      <CommodityCard
-        imageAccessibilityLabel='Second Comodity Image'
-        upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
-        lowerText='$1,000,000'
-      />
-      <View style={styles.divider} />
-      <CommodityCard
-        imageAccessibilityLabel='Third First Comodity Image'
-        upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
-        lowerText='$1,000,000'
-      />
-    </View>
+    <MainCard title='Commodity' headerBgColor='#cda7ff'>
+      <View style={styles.container}>
+        <CommodityCard
+          imageAccessibilityLabel='First Comodity Image'
+          upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
+          lowerText='$1,000,000'
+          imageUrl={Images['noImage']}
+        />
+        <View style={styles.divider} />
+        <CommodityCard
+          imageAccessibilityLabel='Second Comodity Image'
+          upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
+          lowerText='$1,000,000'
+          imageUrl={Images['noImage']}
+        />
+        <View style={styles.divider} />
+        <CommodityCard
+          imageAccessibilityLabel='Third First Comodity Image'
+          upperText='テストテストテストテストテストテストテストテストテストテストテストテスト'
+          lowerText='$1,000,000'
+          imageUrl={Images['noImage']}
+        />
+      </View>
+    </MainCard>
   );
 };
 
