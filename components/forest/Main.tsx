@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import React from 'react';
 import ArrowButton from '../leaf/ArrowButton';
 import MainCardWithInput from '../tree/MainCardWithInput';
+import PriceContext from './PriceContext';
 
 export default function Main() {
   // TODO: Alertの動作を実装後に削除（テスト用に記載）
@@ -18,13 +19,15 @@ export default function Main() {
     ]);
   };
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
-      <View style={styles.container}>
-        <ArrowButton direction='left' onClick={onPressAlert} />
-        <MainCardWithInput />
-        <ArrowButton direction='right' onClick={onPressAlert} />
-      </View>
-    </ScrollView>
+    <PriceContext>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
+        <View style={styles.container}>
+          <ArrowButton direction='left' onClick={onPressAlert} />
+          <MainCardWithInput />
+          <ArrowButton direction='right' onClick={onPressAlert} />
+        </View>
+      </ScrollView>
+    </PriceContext>
   );
 }
 
