@@ -29,7 +29,7 @@ const NumericInput = (props: Props) => {
     setIsFocused(false);
   };
 
-  const handleTextChanged = (input: string) => {
+  const handleTextChange = (input: string) => {
     const numericInput = input.replace(/[^0-9]/g, '');
     props.handleTextChange(numericInput);
   };
@@ -46,7 +46,7 @@ const NumericInput = (props: Props) => {
             value={convertValueToDisplayText(props.unit, props.unitPosition, props.value)}
             placeholderTextColor='#aaa'
             keyboardType='numeric'
-            onChangeText={handleTextChanged}
+            onChangeText={handleTextChange}
             textAlign='right'
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
