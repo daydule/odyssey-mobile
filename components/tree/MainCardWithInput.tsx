@@ -23,7 +23,7 @@ const MainCardWithInput = () => {
     console.log('mainPrice:', mainPrice);
   };
 
-  const calculateIncome = (incomeType: string) => {
+  const createCalculateIncomeFunction = (incomeType: string) => {
     switch (incomeType) {
       case CONSTANT.LABEL.ANNUAL_INCOME:
         return (annualIncomeString: string) => {
@@ -65,21 +65,21 @@ const MainCardWithInput = () => {
           unit='¥'
           unitPosition='left'
           value={annualIncome}
-          handleTextChange={calculateIncome(CONSTANT.LABEL.ANNUAL_INCOME)}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.ANNUAL_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.MONTHLY_INCOME}
           unit='¥'
           unitPosition='left'
           value={monthlyIncome}
-          handleTextChange={calculateIncome(CONSTANT.LABEL.MONTHLY_INCOME)}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.MONTHLY_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.HOURLY_INCOME}
           unit='¥'
           unitPosition='left'
           value={hourlyIncome}
-          handleTextChange={calculateIncome(CONSTANT.LABEL.HOURLY_INCOME)}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.HOURLY_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.HOUR}
