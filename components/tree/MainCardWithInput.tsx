@@ -20,7 +20,6 @@ const MainCardWithInput = () => {
 
     const mainPrice = hourlyIncome * hour;
     setMainPrice(mainPrice);
-    console.log('mainPrice:', mainPrice);
   };
 
   const createCalculateIncomeFunction = (incomeType: string) => {
