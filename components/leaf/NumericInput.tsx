@@ -6,6 +6,8 @@ type Props = {
   label: string;
   unit: string;
   unitPosition: 'left' | 'right';
+  value: number;
+  extraHandleTextChange: (input: string) => void;
 };
 
 const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right', value: number) => {
@@ -13,9 +15,8 @@ const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right',
   return unitPosition === 'left' ? `${unit}${formattedValue}` : `${formattedValue}${unit}`;
 };
 
-const NumericInput = ({ label, unit, unitPosition }: Props) => {
+const NumericInput = ({ label, unit, unitPosition, value, extraHandleTextChange }: Props) => {
   const inputRef = useRef<TextInput | null>(null);
-  const [value, setValue] = useState<number>(0);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocusInput = () => {
@@ -30,8 +31,8 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
 
   const handleTextChanged = (input: string) => {
     const numericInput = input.replace(/[^0-9]/g, '');
-    if (numericInput === '') return;
-    setValue(Number(numericInput));
+    if (numericInput === '') return extraHandleTextChange(numericInput);
+    extraHandleTextChange(numericInput);
   };
 
   return (
