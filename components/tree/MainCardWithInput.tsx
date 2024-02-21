@@ -65,28 +65,28 @@ const MainCardWithInput = () => {
           unit='¥'
           unitPosition='left'
           value={annualIncome}
-          extraHandleTextChange={calculateIncome(CONSTANT.LABEL.ANNUAL_INCOME)}
+          handleTextChange={calculateIncome(CONSTANT.LABEL.ANNUAL_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.MONTHLY_INCOME}
           unit='¥'
           unitPosition='left'
           value={monthlyIncome}
-          extraHandleTextChange={calculateIncome(CONSTANT.LABEL.MONTHLY_INCOME)}
+          handleTextChange={calculateIncome(CONSTANT.LABEL.MONTHLY_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.HOURLY_INCOME}
           unit='¥'
           unitPosition='left'
           value={hourlyIncome}
-          extraHandleTextChange={calculateIncome(CONSTANT.LABEL.HOURLY_INCOME)}
+          handleTextChange={calculateIncome(CONSTANT.LABEL.HOURLY_INCOME)}
         />
         <NumericInput
           label={CONSTANT.LABEL.HOUR}
           unit='h'
           unitPosition='right'
           value={hour}
-          extraHandleTextChange={(value: string) => setHour(Number(value))}
+          handleTextChange={(value: string) => setHour(Number(value))}
         />
         <View style={styles.buttonContainer}>
           <OdysseyButton label='Time is Money' onPress={handlePress} />
