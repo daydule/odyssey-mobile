@@ -2,19 +2,91 @@ import { View, StyleSheet } from 'react-native';
 import NumericInput from '../leaf/NumericInput';
 import MainCard from './MainCard';
 import OdysseyButton from '../leaf/OdysseyButton';
+import { useContext, useState } from 'react';
+import { SetMainPriceContext } from '../forest/PriceContext';
+import { CONSTANT } from '../../constants/constant';
 
 const MainCardWithInput = () => {
+  const { setMainPrice } = useContext(SetMainPriceContext);
+
+  // 収入（年収・月給・時給）入力値
+  const [annualIncome, setAnnualIncome] = useState<number>(0);
+  const [monthlyIncome, setMonthlyIncome] = useState<number>(0);
+  const [hourlyIncome, setHourlyIncome] = useState<number>(0);
+  const [hour, setHour] = useState<number>(0);
+
   const handlePress = () => {
-    console.log('Time is Money');
+    if (!hour) return;
+
+    const mainPrice = hourlyIncome * hour;
+    setMainPrice(mainPrice);
+  };
+
+  const createCalculateIncomeFunction = (incomeType: string) => {
+    switch (incomeType) {
+      case CONSTANT.LABEL.ANNUAL_INCOME:
+        return (annualIncomeString: string) => {
+          const annualIncome = Number(annualIncomeString);
+          setAnnualIncome(annualIncome);
+          const monthlyIncome = annualIncome / CONSTANT.CALC.MONTH_OF_THE_YEAR;
+          const hourlyIncome = monthlyIncome / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+          setMonthlyIncome(Math.round(monthlyIncome));
+          setHourlyIncome(Math.round(hourlyIncome));
+        };
+      case CONSTANT.LABEL.MONTHLY_INCOME:
+        return (monthlyIncomeString: string) => {
+          const monthlyIncome = Number(monthlyIncomeString);
+          setMonthlyIncome(monthlyIncome);
+          const annualIncome = monthlyIncome * CONSTANT.CALC.MONTH_OF_THE_YEAR;
+          const hourlyIncome = monthlyIncome / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+          setAnnualIncome(Math.round(annualIncome));
+          setHourlyIncome(Math.round(hourlyIncome));
+        };
+      case CONSTANT.LABEL.HOURLY_INCOME:
+        return (hourlyIncomeString: string) => {
+          const hourlyIncome = Number(hourlyIncomeString);
+          setHourlyIncome(hourlyIncome);
+          const monthlyIncome = hourlyIncome * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+          const annualIncome = monthlyIncome * CONSTANT.CALC.MONTH_OF_THE_YEAR;
+          setMonthlyIncome(Math.round(monthlyIncome));
+          setAnnualIncome(Math.round(annualIncome));
+        };
+      default:
+        return () => {};
+    }
   };
 
   return (
     <MainCard title='Time is Money' headerBgColor='#cda7ff'>
       <View style={styles.container}>
-        <NumericInput label='年収' unit='¥' unitPosition='left' />
-        <NumericInput label='月収' unit='¥' unitPosition='left' />
-        <NumericInput label='時給' unit='¥' unitPosition='left' />
-        <NumericInput label='Time' unit='h' unitPosition='right' />
+        <NumericInput
+          label={CONSTANT.LABEL.ANNUAL_INCOME}
+          unit='¥'
+          unitPosition='left'
+          value={annualIncome}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.ANNUAL_INCOME)}
+        />
+        <NumericInput
+          label={CONSTANT.LABEL.MONTHLY_INCOME}
+          unit='¥'
+          unitPosition='left'
+          value={monthlyIncome}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.MONTHLY_INCOME)}
+        />
+        <NumericInput
+          label={CONSTANT.LABEL.HOURLY_INCOME}
+          unit='¥'
+          unitPosition='left'
+          value={hourlyIncome}
+          handleTextChange={createCalculateIncomeFunction(CONSTANT.LABEL.HOURLY_INCOME)}
+        />
+        <NumericInput
+          label={CONSTANT.LABEL.HOUR}
+          unit='h'
+          unitPosition='right'
+          value={hour}
+          handleTextChange={(value: string) => setHour(Number(value))}
+        />
         <View style={styles.buttonContainer}>
           <OdysseyButton label='Time is Money' onPress={handlePress} />
         </View>

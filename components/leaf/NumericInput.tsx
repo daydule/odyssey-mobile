@@ -6,6 +6,8 @@ type Props = {
   label: string;
   unit: string;
   unitPosition: 'left' | 'right';
+  value: number;
+  handleTextChange: (input: string) => void;
 };
 
 const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right', value: number) => {
@@ -13,9 +15,8 @@ const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right',
   return unitPosition === 'left' ? `${unit}${formattedValue}` : `${formattedValue}${unit}`;
 };
 
-const NumericInput = ({ label, unit, unitPosition }: Props) => {
+const NumericInput = (props: Props) => {
   const inputRef = useRef<TextInput | null>(null);
-  const [value, setValue] = useState<number>(0);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocusInput = () => {
@@ -28,25 +29,24 @@ const NumericInput = ({ label, unit, unitPosition }: Props) => {
     setIsFocused(false);
   };
 
-  const handleTextChanged = (input: string) => {
+  const handleTextChange = (input: string) => {
     const numericInput = input.replace(/[^0-9]/g, '');
-    if (numericInput === '') return;
-    setValue(Number(numericInput));
+    props.handleTextChange(numericInput);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>{label}</Text>
+        <Text style={styles.label}>{props.label}</Text>
         <View style={styles.innerInputContainer}>
           <TextInput
             ref={inputRef}
             style={styles.input}
             placeholder='入力してください'
-            value={convertValueToDisplayText(unit, unitPosition, value)}
+            value={convertValueToDisplayText(props.unit, props.unitPosition, props.value)}
             placeholderTextColor='#aaa'
             keyboardType='numeric'
-            onChangeText={handleTextChanged}
+            onChangeText={handleTextChange}
             textAlign='right'
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
