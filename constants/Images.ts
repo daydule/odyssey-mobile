@@ -7,7 +7,6 @@ const Images: Record<string, ImageSourcePropType> = {
   aboutContentRightFront: require('../assets/images/about_right_card_front.png'),
   aboutContentRightBack: require('../assets/images/about_right_card_back.png'),
   headerLogo: require('../assets/images/header_logo.png'),
-
 };
 
 export default Images;
