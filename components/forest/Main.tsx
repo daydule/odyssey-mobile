@@ -33,7 +33,7 @@ export default function Main() {
     const getMainCard = () => {
       switch (item.id) {
         case 'input':
-          return <MainCardWithInput />;
+          return <MainCardWithInput onPressTimeIsMoney={scrollToNextSlide} />;
         case 'moneyResult':
           return <MainCardWithMoneyResult />;
         case 'commodity':
