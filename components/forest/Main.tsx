@@ -5,8 +5,10 @@ import React from 'react';
 import ArrowButton from '../leaf/ArrowButton';
 import MainCardWithInput from '../tree/MainCardWithInput';
 import PriceContext from './PriceContext';
+import Onboarding from '../leaf/OnBoarding';
 
 export default function Main() {
+  return <Onboarding />;
   // TODO: Alertの動作を実装後に削除（テスト用に記載）
   const onPressAlert = () => {
     Alert.alert('アローボタンが押下されました。', '', [
