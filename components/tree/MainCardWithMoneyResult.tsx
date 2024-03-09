@@ -1,11 +1,11 @@
 import MainCard from './MainCard';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MainPriceContext } from '../forest/PriceContext';
 
 const MainCardWithMoneyResult = () => {
-  // TODO: ロジックについてはMainのロジック実装後に対応
-  const mainPrice = 0;
+  const { mainPrice } = useContext(MainPriceContext);
   const [previousPrice, setPreviousPrice] = useState(0);
   const [difference, setDifference] = useState(0);
 
