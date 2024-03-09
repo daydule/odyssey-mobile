@@ -26,7 +26,7 @@ const AboutCardWithImage = ({ imageName, title, text }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 500,
+    minHeight: 700,
     width: '100%',
     borderRadius: 25,
     backgroundColor: 'white',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   imageContainer: {
-    height: 250,
+    height: 400,
     width: '100%',
     textAlign: 'center',
   },
