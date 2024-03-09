@@ -36,8 +36,6 @@ const MainCardWithMoneyResult = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 580,
-    width: 173,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
