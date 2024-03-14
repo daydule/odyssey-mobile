@@ -6,7 +6,11 @@ import { useContext, useState } from 'react';
 import { SetMainPriceContext } from '../forest/PriceContext';
 import { CONSTANT } from '../../constants/constant';
 
-const MainCardWithInput = () => {
+type Props = {
+  onPressTimeIsMoney: () => void;
+};
+
+const MainCardWithInput = (props: Props) => {
   const { setMainPrice } = useContext(SetMainPriceContext);
 
   // 収入（年収・月給・時給）入力値
@@ -20,6 +24,7 @@ const MainCardWithInput = () => {
 
     const mainPrice = hourlyIncome * hour;
     setMainPrice(mainPrice);
+    props.onPressTimeIsMoney();
   };
 
   const createCalculateIncomeFunction = (incomeType: string) => {

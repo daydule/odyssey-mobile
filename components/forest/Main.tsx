@@ -1,32 +1,92 @@
-import { ScrollView, StyleSheet, Alert } from 'react-native';
+import { ScrollView, StyleSheet, useWindowDimensions, FlatList } from 'react-native';
 
 import { View } from 'react-native';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import ArrowButton from '../leaf/ArrowButton';
 import MainCardWithInput from '../tree/MainCardWithInput';
 import PriceContext from './PriceContext';
+import MainCardWithMoneyResult from '../tree/MainCardWithMoneyResult';
+import MainCardWithCommodity from '../tree/MainCardWithCommodity';
+
+type SlideType = {
+  id: string;
+};
+
+const slides: SlideType[] = [
+  {
+    id: 'input',
+  },
+  {
+    id: 'moneyResult',
+  },
+  {
+    id: 'commodity',
+  },
+];
 
 export default function Main() {
-  // TODO: Alertの動作を実装後に削除（テスト用に記載）
-  const onPressAlert = () => {
-    Alert.alert('アローボタンが押下されました。', '', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      { text: 'OK', onPress: () => console.log('OK Pressed') },
-    ]);
+  const { width } = useWindowDimensions();
+  const flatListRef = useRef<FlatList<SlideType>>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const _renderItem = ({ item }: { item: SlideType }) => {
+    const getMainCard = () => {
+      switch (item.id) {
+        case 'input':
+          return <MainCardWithInput onPressTimeIsMoney={scrollToNextSlide} />;
+        case 'moneyResult':
+          return <MainCardWithMoneyResult />;
+        case 'commodity':
+          return <MainCardWithCommodity />;
+      }
+    };
+    return (
+      <View style={StyleSheet.create({ cardContainer: { width: width } }).cardContainer}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
+          <View style={styles.container}>
+            <ArrowButton direction='left' onClick={scrollToPreviousSlide} />
+            {getMainCard()}
+            <ArrowButton direction='right' onClick={scrollToNextSlide} />
+          </View>
+        </ScrollView>
+      </View>
+    );
   };
+
+  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+
+  const scrollToPreviousSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      flatListRef.current?.scrollToIndex({ index: currentIndex - 1 });
+    }
+  };
+
+  const scrollToNextSlide = () => {
+    if (currentIndex < slides.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      flatListRef.current?.scrollToIndex({ index: currentIndex + 1 });
+    }
+  };
+
+  const viewableItemsChanged = useRef(({ viewableItems }: { viewableItems: unknown }) => {
+    console.log(viewableItems);
+  }).current;
+
   return (
     <PriceContext>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
-        <View style={styles.container}>
-          <ArrowButton direction='left' onClick={onPressAlert} />
-          <MainCardWithInput />
-          <ArrowButton direction='right' onClick={onPressAlert} />
-        </View>
-      </ScrollView>
+      <FlatList
+        ref={flatListRef}
+        data={slides}
+        renderItem={_renderItem}
+        keyExtractor={(item) => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled
+        bounces={true}
+        onViewableItemsChanged={viewableItemsChanged}
+        viewabilityConfig={viewConfig}
+      />
     </PriceContext>
   );
 }
@@ -38,6 +98,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 15,
-    paddingHorizontal: 35,
+    paddingHorizontal: 45,
   },
 });
