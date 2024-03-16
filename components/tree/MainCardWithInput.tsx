@@ -5,9 +5,12 @@ import OdysseyButton from '../leaf/OdysseyButton';
 import { useContext, useState } from 'react';
 import { SetMainPriceContext } from '../forest/PriceContext';
 import { CONSTANT } from '../../constants/constant';
+import { getProducts } from '../../api/getProduct';
+import { Commodity } from '../leaf/CommodityCard';
 
 type Props = {
   onPressTimeIsMoney: () => void;
+  setCommodities: React.Dispatch<React.SetStateAction<Commodity[]>>;
 };
 
 const MainCardWithInput = (props: Props) => {
@@ -25,6 +28,20 @@ const MainCardWithInput = (props: Props) => {
     const mainPrice = hourlyIncome * hour;
     setMainPrice(mainPrice);
     props.onPressTimeIsMoney();
+
+    async function fetchData() {
+      const randomKeyword = CONSTANT.PRODUCT_KEYWORDS[Math.floor(Math.random() * CONSTANT.PRODUCT_KEYWORDS.length)];
+
+      const products = await getProducts({
+        keyword: randomKeyword,
+        genreId: '0',
+        minPrice: Math.round(mainPrice * 0.9),
+        maxPrice: mainPrice,
+        hits: 4,
+      });
+      props.setCommodities(products);
+    }
+    void fetchData();
   };
 
   const createCalculateIncomeFunction = (incomeType: string) => {
