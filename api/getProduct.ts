@@ -17,12 +17,17 @@ interface Product {
 }
 
 export const getProducts = async (options?: Record<string, string | number>): Promise<Product[]> => {
-  const result: { Items: Item[] } = await rakutenApiClient.get('/IchibaItem/Search/20220601', {
-    params: {
-      ...options,
-      formatVersion: 2,
-    },
-  });
+  let result: { Items: Item[] } = { Items: [] };
+  try {
+    result = await rakutenApiClient.get('/IchibaItem/Search/20220601', {
+      params: {
+        ...options,
+        formatVersion: 2,
+      },
+    });
+  } catch (e) {
+    console.error(e);
+  }
 
   return result.Items.map((item: Item): Product => {
     return {

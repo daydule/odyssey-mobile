@@ -13,10 +13,10 @@ const MainCardWithCommodity: React.FC<Props> = ({ commodities }) => {
       <>
         {commodities.map((commodity, index) => {
           return (
-            <>
+            <View key={`Commodity_${index}`}>
               {index !== 0 && <View style={styles.divider} />}
               <CommodityCard commodity={commodity}></CommodityCard>
-            </>
+            </View>
           );
         })}
       </>
