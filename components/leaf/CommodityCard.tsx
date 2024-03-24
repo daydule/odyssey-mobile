@@ -1,23 +1,24 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Image, Text, StyleSheet } from 'react-native';
 
-interface Props {
-  imageUrl: ImageSourcePropType;
-  imageAccessibilityLabel: string;
-  upperText: string;
-  lowerText: string;
-}
+export type Commodity = {
+  imagePath: string;
+  altText: string;
+  title: string;
+  price: number;
+  url: string;
+};
 
-const CommodityCard: React.FC<Props> = ({ imageUrl, imageAccessibilityLabel, upperText, lowerText }) => {
+const CommodityCard: React.FC<{ commodity: Commodity }> = ({ commodity }) => {
   return (
     <View style={styles.card}>
-      <Image source={imageUrl} accessibilityLabel={imageAccessibilityLabel} style={styles.image} />
+      <Image source={{ uri: commodity.imagePath }} accessibilityLabel={commodity.altText} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.upperText} numberOfLines={2}>
-          {upperText}
+          {commodity.title}
         </Text>
         <View style={styles.lowerTextContainer}>
-          <Text style={styles.lowerText}>{lowerText}</Text>
+          <Text style={styles.lowerText}>{commodity.price.toLocaleString()}</Text>
         </View>
       </View>
     </View>

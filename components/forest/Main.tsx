@@ -7,6 +7,7 @@ import MainCardWithInput from '../tree/MainCardWithInput';
 import PriceContext from './PriceContext';
 import MainCardWithMoneyResult from '../tree/MainCardWithMoneyResult';
 import MainCardWithCommodity from '../tree/MainCardWithCommodity';
+import { Commodity } from '../leaf/CommodityCard';
 
 type SlideType = {
   id: string;
@@ -28,6 +29,7 @@ export default function Main() {
   const { width } = useWindowDimensions();
   const flatListRef = useRef<FlatList<SlideType>>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [commodities, setCommodities] = useState<Commodity[]>([]);
   const [keyboardActive, setKeyboardActive] = useState(false);
 
   useEffect(() => {
@@ -48,11 +50,11 @@ export default function Main() {
     const getMainCard = () => {
       switch (item.id) {
         case 'input':
-          return <MainCardWithInput onPressTimeIsMoney={scrollToNextSlide} />;
+          return <MainCardWithInput onPressTimeIsMoney={scrollToNextSlide} setCommodities={setCommodities} />;
         case 'moneyResult':
           return <MainCardWithMoneyResult />;
         case 'commodity':
-          return <MainCardWithCommodity />;
+          return <MainCardWithCommodity commodities={commodities} />;
       }
     };
     return (
