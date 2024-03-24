@@ -84,10 +84,6 @@ export default function Main() {
     }
   };
 
-  const viewableItemsChanged = useRef(({ viewableItems }: { viewableItems: unknown }) => {
-    console.log(viewableItems);
-  }).current;
-
   return (
     <PriceContext>
       <FlatList
@@ -99,7 +95,6 @@ export default function Main() {
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         bounces={true}
-        onViewableItemsChanged={viewableItemsChanged}
         viewabilityConfig={viewConfig}
       />
     </PriceContext>
