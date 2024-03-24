@@ -1,7 +1,7 @@
-import { ScrollView, StyleSheet, useWindowDimensions, FlatList } from 'react-native';
+import { ScrollView, StyleSheet, useWindowDimensions, FlatList, Keyboard } from 'react-native';
 
 import { View } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ArrowButton from '../leaf/ArrowButton';
 import MainCardWithInput from '../tree/MainCardWithInput';
 import PriceContext from './PriceContext';
@@ -30,6 +30,21 @@ export default function Main() {
   const flatListRef = useRef<FlatList<SlideType>>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [commodities, setCommodities] = useState<Commodity[]>([]);
+  const [keyboardActive, setKeyboardActive] = useState(false);
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardActive(true);
+    });
+    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardActive(false);
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []);
 
   const _renderItem = ({ item }: { item: SlideType }) => {
     const getMainCard = () => {
@@ -45,7 +60,7 @@ export default function Main() {
     return (
       <View style={StyleSheet.create({ cardContainer: { width: width } }).cardContainer}>
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled' scrollEnabled={false}>
-          <View style={styles.container}>
+          <View style={[styles.container, keyboardActive && styles.contentScaled]}>
             <ArrowButton direction='left' onClick={scrollToPreviousSlide} />
             {getMainCard()}
             <ArrowButton direction='right' onClick={scrollToNextSlide} />
@@ -101,5 +116,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 15,
     paddingHorizontal: 45,
+  },
+  contentScaled: {
+    transform: [{ scale: 0.7 }, { translateY: -145 }],
   },
 });
